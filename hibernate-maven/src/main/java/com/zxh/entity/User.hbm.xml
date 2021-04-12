@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--数据库映射，package指定了实体类所在的包名-->
+<hibernate-mapping package="com.zxh.entity">
+    <!--表映射，name表示对象名，table表示表名-->
+    <class name="User" table="t_user">
+        <!--主键自增-->
+       <id name="id">
+           <generator class="native"></generator>
+       </id>
+        <!--属性映射,name对象的属性，column表示数据库表的字段名称，当name和column时可省略-->
+        <property name="name" column="name"></property>
+        <property name="password"></property>
+    </class>
+</hibernate-mapping>
