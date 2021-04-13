@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--数据库映射，package指定了实体类所在的包名-->
+<hibernate-mapping package="com.zxh.entity">
+    <!--表映射，name表示对象名，table表示表名-->
+    <class name="Student" table="t_student">
+        <!--主键自增-->
+       <id name="id">
+           <generator class="native"></generator>
+       </id>
+        <property name="name" length="50"></property>
+        <!-- 多对一关系映射,指向一的一方 -->
+        <many-to-one name="clazz" class="Clazz" column="cid"></many-to-one>
+    </class>
+</hibernate-mapping>

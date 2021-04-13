@@ -10,22 +10,32 @@
         <property name="connection.username">root</property>
         <property name="connection.password">zys123456</property>
         <!-- 方言-->
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <!-- 指定数据库的生成方式，update是当表存在时插入数据，表不存在时先创建表再插入数据-->
         <property name="hibernate.hbm2ddl.auto">update</property>
         <!--        &lt;!&ndash;打印sql&ndash;&gt;-->
         <!--        <property name="show_sql">true</property>-->
         <!--        &lt;!&ndash;格式化sql&ndash;&gt;-->
         <!--        <property name="format_sql">true</property>-->
+
         <!-- 开启二级缓存-->
-        <property name="hibernate.cache.use_second_level_cache">true</property>
-        <!-- 开启查询缓存-->
-        <property name="hibernate.cache.use_query_cache">true</property>
-        <property name="hibernate.cache.region.factory_class">
-            org.hibernate.cache.ehcache.EhCacheRegionFactory
-        </property>
+<!--        <property name="hibernate.cache.use_second_level_cache">true</property>-->
+<!--        &lt;!&ndash; 开启查询缓存&ndash;&gt;-->
+<!--        <property name="hibernate.cache.use_query_cache">true</property>-->
+<!--        <property name="hibernate.cache.region.factory_class">-->
+<!--            org.hibernate.cache.ehcache.EhCacheRegionFactory-->
+<!--        </property>-->
+
+        <!--使用本地事务-->
+<!--        <property name= "hibernate.current_session_context_class"> thread</property>-->
+<!--        &lt;!&ndash;设置事务隔离级别&ndash;&gt;-->
+<!--        <property name= "hibernate.connection.isolation">2</property>-->
         <!-- orm映射文件-->
         <mapping resource="com/zxh/entity/User.hbm.xml"/>
-        <class-cache usage="read-write" class="com.zxh.entity.User"/>
+        <mapping resource="com/zxh/entity/Clazz.hbm.xml"/>
+        <mapping resource="com/zxh/entity/Student.hbm.xml"/>
+        <mapping resource="com/zxh/entity/Stud.hbm.xml"/>
+        <mapping resource="com/zxh/entity/Course.hbm.xml"/>
+<!--        <class-cache usage="read-write" class="com.zxh.entity.User"/>-->
     </session-factory>
 </hibernate-configuration>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--数据库映射，package指定了实体类所在的包名-->
+<hibernate-mapping package="com.zxh.entity">
+    <!--表映射，name表示对象名，table表示表名-->
+    <class name="Clazz" table="t_clazz">
+        <!--主键自增-->
+       <id name="id">
+           <generator class="native"></generator>
+       </id>
+        <property name="name" length="100"></property>
+        <!-- 一对多的关系使用set集合映射 -->
+        <set name="students" cascade="delete-orphan">
+            <!-- 指定映外键的列名 -->
+            <key column="cid" foreign-key="cid"/>
+            <!-- 指定映射的类，指向多的一方 -->
+            <one-to-many class="Student"/>
+        </set>
+    </class>
+</hibernate-mapping>
