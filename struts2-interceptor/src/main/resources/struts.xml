@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 指定 Struts2 配置文件的 DTD 信息 -->
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<!-- Struts2配置文件的根元素 -->
+<struts>
+
+    <!--设置默认编码集为UTF-8-->
+    <constant name="struts.il8n.encoding" value="UTF-8"/>
+    <!--设置使用开发模式-->
+    <constant name="struts.devMode" value="true"/>
+
+    <!-- Struts2的Action必须放在指定的包空间下定义 -->
+    <package name="hello" namespace="/" extends="struts-default">
+        <!-- 声明拦截器和拦截器栈-->
+        <interceptors>
+            <interceptor name="privilege"
+                         class="com.zxh.config.PrivilegeInterceptor" />
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="defaultStack" />
+                <interceptor-ref name="privilege" />
+            </interceptor-stack>
+        </interceptors>
+
+
+        <action name="login" class="com.zxh.controller.LoginAction" method="login">
+            <result name="success">/index.jsp</result>
+            <result name="input">/login.jsp</result>
+        </action>
+
+        <action name="userAction_*" class="com.zxh.controller.UserAction" method="{1}">
+            <!-- 定义处理结果和视图资源之间的映射关系 -->
+            <result name="success">/{1}.jsp</result>
+            <result name="login">/login.jsp</result>
+            <!-- 使用拦截器 -->
+            <interceptor-ref name="myStack" />
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 指定 Struts2 配置文件的 DTD 信息 -->
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<!-- Struts2配置文件的根元素 -->
+<struts>
+
+    <!--设置默认编码集为UTF-8-->
+    <constant name="struts.il8n.encoding" value="UTF-8"/>
+    <!--设置使用开发模式-->
+    <constant name="struts.devMode" value="true"/>
+    <!--开启静态访问-->
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
+
+    <!--设置主题-->
+<!--    <constant name="struts.ui.theme" value="simple"/>-->
+
+<!--    <include file="struts-post.xml"/>-->
+<!--    &lt;!&ndash;配置文件在具体包中时的方式&ndash;&gt;-->
+<!--    <include file="com/zxh/action/struts-product.xml"/>-->
+
+
+    <!-- Struts2的Action必须放在指定的包空间下定义 -->
+    <package name="hello" namespace="/" extends="struts-default">
+
+        <!-- 定义 action，该 action 对应的类为 com.zxh.controller.HelloWorldController 类-->
+        <action name="helloWorld" class="com.zxh.controller.HelloWorldController2" method="toSuccess">
+            <!-- 定义处理结果和视图资源之间的映射关系 -->
+<!--            <result name="success">/success.jsp</result>-->
+<!--            <result name="success" type="dispatcher">-->
+<!--                <param name="location">/success.jsp</param>-->
+<!--            </result>-->
+            <result>/success.jsp</result>
+        </action>
+        <action name="userAction_*" class="com.zxh.controller.UserAction" method="{1}">
+            <!-- 定义处理结果和视图资源之间的映射关系 -->
+            <result name="success">/{1}.jsp</result>
+        </action>
+        <action name="login" class="com.zxh.controller.LoginAction" method="login">
+            <result name="success">/index.jsp</result>
+            <result name="error">/loginError.jsp</result>
+        </action>
+<!--        <action name="login" class="com.zxh.controller.LoginAction" method="login">-->
+<!--            <result name="success" type="redirect">/loginSuccess.jsp</result>-->
+<!--            <result name="error" type="dispatcher">/loginError.jsp</result>-->
+<!--        </action>-->
+        <action name="ognl" class="com.zxh.controller.OgnlController" >
+            <result>/ognl.jsp</result>
+        </action>
+    </package>
+</struts>
