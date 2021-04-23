@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.zxh.ssh.entity">
+    <!--表映射，name表示对象名，table表示表名-->
+    <class name="com.zxh.ssh.entity.User" table="t_user">
+       <id name="id">
+           <generator class="native"></generator>
+       </id>
+        <property name="name"></property>
+        <property name="password"></property>
+    </class>
+</hibernate-mapping>

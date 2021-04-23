@@ -13,7 +13,7 @@ public class PrivilegeInterceptor extends AbstractInterceptor {
         //获取用户登录信息
         Object username = context.getSession().get("username");
         if (null == username) {
-            context.getSession().put("msg", "您还未登录，请先登录！");
+            context.put("msg", "您还未登录，请先登录！");
             //返回登录请求
             return Action.LOGIN;
         } else {

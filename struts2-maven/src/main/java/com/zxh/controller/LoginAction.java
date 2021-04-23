@@ -4,8 +4,6 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.zxh.entity.User;
-import lombok.Getter;
-import lombok.Setter;
 
 //@Setter
 //@Getter

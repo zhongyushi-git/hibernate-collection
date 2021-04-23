@@ -17,7 +17,7 @@
     <p>不使用%：<s:url value="#key['key1']" /></p>
     <p>使用%：<s:url value="%{#key['key1']}" /></p>
     <hr />
-    获取的静态属性值为：<s:property value="@com.zxh.controller.TestMain@staticValue"/><br/>
-    调用静态方法的结果请查看控制台<s:property value="@com.zxh.controller.TestMain@testMethod()"/>
+    获取的静态属性值为：<s:property value="@com.zxh.ssh.action.TestMain@staticValue"/><br/>
+    调用静态方法的结果请查看控制台<s:property value="@com.zxh.ssh.action.TestMain@testMethod()"/>
 </body>
 </html>

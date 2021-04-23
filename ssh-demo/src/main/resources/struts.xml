@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 指定 Struts2 配置文件的 DTD 信息 -->
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <!--设置默认编码集为UTF-8-->
+    <constant name="struts.il8n.encoding" value="UTF-8"/>
+    <!--设置使用开发模式-->
+    <constant name="struts.devMode" value="true"/>
+
+    <package name="user" namespace="/" extends="struts-default">
+        <action name="login" class="com.zxh.ssh.action.UserAction" method="login">
+            <result name="success">/index.jsp</result>
+            <result name="login_input">/login.jsp</result>
+        </action>
+    </package>
+</struts>
