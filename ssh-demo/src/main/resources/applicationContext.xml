@@ -47,14 +47,5 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
-<!--    <bean id="userDao" class="com.zxh.ssh.dao.impl.UserDaoImpl">-->
-<!--        <property name="sessionFactory" ref="sessionFactory" />-->
-<!--    </bean>-->
-
-<!--    <bean id="userService" class="com.zxh.ssh.service.impl.UserServiceImpl">-->
-<!--        <property name="userDao" ref="userDao" />-->
-<!--    </bean>-->
-
-
 
 </beans>
